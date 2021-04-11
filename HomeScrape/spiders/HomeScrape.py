@@ -18,7 +18,7 @@ class HomeSpider(scrapy.Spider):
         accounts = response.xpath("//div[@class = 'column-half'][1]//p").extract()
         account = ''
         for acc in accounts:
-            acc = acc.replace('<p>', '').replace('\n', '').replace('</strong>', ' ').replace('<strong>', ' ').replace('<br>', '').replace('</p>', '').replace("  ", "").strip()
+            acc = acc.replace('<p>', ' ').replace('\n', ' ').replace('</strong>', ' ').replace('<strong>', ' ').replace('<br>', ' ').replace('</p>', ' ').replace("  ", "").strip()
             if acc != '':
                 account = account + " " + acc
         item['Accounts'] = account
